@@ -12,7 +12,7 @@ class UserResponse(UserBase):
     id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class CandidateCreate(BaseModel):
     name: str = Field(..., min_length=1, max_length=100)
@@ -22,7 +22,7 @@ class CandidateResponse(CandidateCreate):
     id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class PollCreate(BaseModel):
     title: str = Field(..., min_length=1, max_length=200)
@@ -34,7 +34,7 @@ class PollResponse(PollCreate):
     creator_id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class VoteCreate(BaseModel):
     poll_id: int
